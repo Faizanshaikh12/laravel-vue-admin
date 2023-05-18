@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +13,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('{view}', ApplicationController::class)->where('view', '(.*)');
+Route::get('/', [IndexController::class, 'index']);
+Route::get('/show', [IndexController::class, 'show']);

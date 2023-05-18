@@ -1,18 +1,14 @@
-import './bootstrap';
-import 'admin-lte/plugins/jquery/jquery.min.js'
-import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js'
-import 'admin-lte/dist/js/adminlte.min.js'
-import { createApp } from 'vue/dist/vue.esm-bundler.js';
-import { createRouter, createWebHistory } from 'vue-router';
-import Routes from "./routes"
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3'
 
-const app = createApp({});
-
-const router = createRouter({
-    routes: Routes,
-    history: createWebHistory()
+createInertiaApp({
+  resolve: name => {
+    const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+    return pages[`./Pages/${name}.vue`]
+  },
+  setup({ el, App, props, plugin }) {
+    createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .mount(el)
+  },
 })
-
-app.use(router)
-
-app.mount("#app")
