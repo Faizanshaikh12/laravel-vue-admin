@@ -13,7 +13,7 @@
 `npm run dev` // vite
 `php artisan route:list` // show route list
 `php artisan db:show` // check connection
-`php artisan make:controller <controller-name>` // make controller
+`php artisan make:controller <controller-name> --resource` // make controller
 `php artisan make:model <model-name>` // make model
 `php artisan make:model <model-name> -m` // make model migration
 
@@ -22,8 +22,11 @@
 `php artisan make:migration <migration-name>` // make a migration
 `php artisan migrate:status` // check migrations
 `php artisan migrate:rollback` // rollback last migration
+`php artisan migrate:refresh --seed` // refresh migration with seeder (please run only locally)
 
 ### Debugger and Helpers
 `composer require barryvdh/laravel-debugbar --dev`
 `composer require --dev barryvdh/laravel-ide-helper`
 
+### Logs and Query
+`php artisan tinker` Just example (Listing::all()) => show all listing table records

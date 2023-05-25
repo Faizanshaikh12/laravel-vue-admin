@@ -2,6 +2,7 @@
   <div>Index</div>
   <Link href="/">Home</Link>
   <Link href="/show">Show</Link>
+  <Link href="/listing/create">Create</Link>
   <div>The Time {{ timer }}</div>
   <slot />
 </template>
